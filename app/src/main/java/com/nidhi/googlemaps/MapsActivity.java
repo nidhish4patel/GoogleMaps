@@ -66,9 +66,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                     double latitide = location.getLatitude();
                     double longitude = location.getLongitude();
-                    LatLng latLng = new LatLng(latitide,longitude);
+                    LatLng latLng = new LatLng(latitide, longitude);
                     gmap.addMarker(new MarkerOptions().position(latLng));
-                    gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng,200));
+                    gmap.moveCamera(CameraUpdateFactory.newLatLngZoom(latLng, 200));
 
                 }
 
@@ -84,8 +84,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 public void onProviderDisabled(String provider) {
                 }
             });
-        }else{
-            ActivityCompat.requestPermissions(MapsActivity.this,new String[]{"android.permission.ACCESS_FINE_LOCATION"},100);
+        } else {
+            ActivityCompat.requestPermissions(MapsActivity.this, new String[]{"android.permission.ACCESS_FINE_LOCATION"}, 100);
         }
     }
 
@@ -94,13 +94,13 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
 
-        switch (requestCode){
+        switch (requestCode) {
             case 100:
 
-                if(grantResults[0]==PackageManager.PERMISSION_GRANTED){
+                if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                     getCurrentLocation(mMap);
-                }else{
-                    Toast.makeText(context,"Permission Denined",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(context, "Permission Denined", Toast.LENGTH_SHORT).show();
                 }
 
                 break;
